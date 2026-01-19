@@ -1,0 +1,92 @@
+.navbar {
+  width: 100%;
+  max-width: 1250px; /* Matches your grid width roughly */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #333;
+  margin-bottom: 30px;
+}
+
+.nav-logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-logo span {
+  color: #00ffcc;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+/* This is the class for the current page */
+.active-link {
+  color: #00ffcc !important;
+  border-bottom: 2px solid #00ffcc;
+  padding-bottom: 5px;
+}
+
+.user-email {
+  color: #aaa
+}
+
+.email-circle {
+  background-color: #00ffcc;
+  color: #121212;
+  width: 35px;          /* Slightly bigger for better visibility */
+  height: 35px;
+  border-radius: 50%;   /* Use 50% for a perfect circle regardless of size */
+  font-weight: bold;
+  font-size: 1.1rem;
+  
+  /* The "Magic" centering combo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  border: 2px solid white; /* Make the border a bit more defined */
+  cursor: default;
+  transition: transform 0.2s;
+}
+
+.email-circle:hover {
+  transform: scale(1.1); /* Subtle "pop" when hovering */
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: 1px solid #ff4a4a; /* Red border to signal 'exit' */
+  color: #ff4a4a;
+  padding: 6px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.logout-btn:hover {
+  background-color: #ff4a4a;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 74, 74, 0.3);
+}

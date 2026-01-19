@@ -1,0 +1,74 @@
+.game-card {
+  background-color: #252525;
+  border-radius: 8px;
+  width: 250px; 
+  overflow: hidden;
+  border: 1px solid #333;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 204, 0.2);
+}
+
+.game-image {
+  width: 100%;
+  height:250px;
+  border-radius: 8px;
+  object-fit: cover; /* This makes sure the image isnt squished */
+}
+
+.game-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.game-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.platform-badge {
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-size: .9rem;
+}
+
+.like-btn {
+  background-color: transparent;
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+
+.like-btn.liked {
+  background-color: #00ffcc;
+  color: #121212;
+}
+
+.like-btn:hover {
+  background-color: rgba(0, 255, 204, 0.1);
+}
+
+.hour-played {
+  background-color: transparent;
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: .2s;
+}
+
+.hour-played:active {
+  background-color: #00ffcc;
+}

@@ -1,0 +1,138 @@
+/* This targets the whole body of the page */
+body {
+  margin: 0;
+  background-color: #121212; /* Dark grey/black */
+  color: white;             /* White text */
+  font-family: sans-serif;
+  width: 100%;
+}
+
+.game-list {
+  display: flex;
+  flex-wrap: wrap;      /* This allows cards to "drop" to the next line */
+  justify-content: center; /* Keeps the whole group centered */
+  gap: 40px;            /* Even spacing between all cards */
+  margin-top: 30px;
+  width: 100%;
+  max-width: 1600px;    /* Optional: prevents the list from getting TOO wide on giant screens */
+  padding: 0 20px;      /* Prevents cards from touching screen edges on mobile */
+}
+
+/* This is a custom class for our container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers the Grid on the page */
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.highlight-text {
+  color: #00ffcc; /* Neon teal gaming color */
+}
+
+/* Add this to center the title and search bar area */
+.header-section {
+  width: 100%;
+  text-align: center; /* This centers the text inside the div */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers the search-container inside the section */
+  margin-bottom: 20px;
+}
+
+/* Let's make the "No games found" look better so it doesn't look like a bug */
+.no-results {
+  margin-top: 50px;
+  font-size: 1.2rem;
+  color: #888;
+  text-align: center;
+  width: 100%;
+}
+
+/* Optional: Add a little fade-in animation for the cards so they don't just "pop" in */
+.game-list {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+html {
+  overflow-y: scroll;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #888;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column; /* Stack on small screens */
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0 40px 0; /* Add nice spacing below the navbar */
+  width: 100%;
+}
+
+/* On bigger screens, put them in a nice row */
+@media (min-width: 768px) {
+  .toolbar {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.search-wrapper {
+  flex: 1; /* Allows search bar to take up available space */
+  max-width: 500px;
+}
+
+.sort-dropdown {
+  height: 45px; /* Match the height of the search bar */
+  padding: 0 15px;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 25px; /* Rounded like the search bar */
+  cursor: pointer;
+  outline: none;
+}
+
+.scroll-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #00ffcc;
+  color: #121212;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000; /* Ensures it stays above the game cards */
+}
+
+.scroll-btn:hover {
+  transform: translateY(-5px);
+  background-color: white;
+  box-shadow: 0 6px 20px rgba(0, 255, 204, 0.4);
+}
+
+/* Let's add a "fade in" effect for when we eventually add visibility logic */
+.scroll-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}

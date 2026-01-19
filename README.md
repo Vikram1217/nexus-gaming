@@ -1,16 +1,17 @@
-# React + Vite
+# Nexus Gaming 🎮
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A production-grade React application for discovering games and managing a personal backlog.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- **Real-time Discovery:** Integrated with RAWG API for up-to-date game data.
+- **Infinite Scroll:** High-performance data fetching using Intersection Observer.
+- **Full Authentication:** Secure login/signup via Firebase Auth.
+- **Personal Wishlist:** Private Firestore sub-collections for game tracking.
+- **Community Reviews:** Real-time social feedback system using Firestore `onSnapshot`.
+- **Performance Optimized:** Utilizes `useMemo`, `useCallback`, and `React.memo` for a lag-free experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+- **Frontend:** React (Vite), React Router v6
+- **Backend:** Firebase (Auth, Firestore)
+- **Styling:** CSS Modules / Custom CSS
+- **API:** RAWG Video Games Database

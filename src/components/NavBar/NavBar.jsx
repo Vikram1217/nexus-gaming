@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useContext } from 'react'; // 1. Import hook
 import { AuthContext } from '../../context/AuthContext'; // 2. Import context
 
-import './Navbar.css';
+import './NavBar.css';
 
 function Navbar() {
   // 3. "Tune in" to the broadcast!

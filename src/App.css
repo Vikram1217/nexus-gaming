@@ -53,6 +53,12 @@ body {
 
 /* Optional: Add a little fade-in animation for the cards so they don't just "pop" in */
 .game-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* Reduce gap slightly to help fit more */
+  gap: 20px; 
+  width: 100%;
   animation: fadeIn 0.5s ease-in;
 }
 
@@ -135,4 +141,37 @@ html {
 .scroll-btn.hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+/* 1. Give the overall container more room */
+.main-content-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  /* Increase this so 5 cards have room to sit next to the sidebar */
+  max-width: 1600px; 
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .main-content-layout {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .sidebar-section {
+    flex: 0 0 300px;
+    position: sticky;
+    top: 20px;
+  }
+
+  .games-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* This ensures the games take up all available space next to the sidebar */
+    width: 100%; 
+  }
 }

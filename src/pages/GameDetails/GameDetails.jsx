@@ -108,7 +108,7 @@ const GameDetails = () => {
           </div>
         </>
       )}
-      <ReviewSection gameId={id} />
+      <ReviewSection gameName={game.name} gameId={id} />
     </div>
   );
 }

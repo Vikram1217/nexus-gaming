@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import GameCard from '../../components/GameCard/GameCard';
+import { ActivityFeed } from '../../components/ActivityFeed/ActivityFeed';
 import { useAuth } from '../../context/AuthContext';
 
 function Home() {
@@ -163,13 +164,17 @@ function Home() {
 
       {error && <p className="error-msg">{error}</p>}
 
-      <div className="game-list">
-        {/* Only show the "Searching..." loader if we are on page 1 and have no games yet */}
-        {isloading && page === 1 && games.length === 0 && (
-           <div className="loader">Searching Database...</div>
-        )}
+    {/* NEW WRAPPER START */}
+    <div className="main-content-layout">
+      
+      {/* LEFT COLUMN: The Games Section */}
+      <div className="games-section">
+        <div className="game-list">
+          {isloading && page === 1 && games.length === 0 && (
+            <div className="loader">Searching Database...</div>
+          )}
 
-        {games.length > 0 && sortedGames.map((game) => (
+          {games.length > 0 && sortedGames.map((game) => (
             <GameCard
               key={game.id}
               id={game.id}
@@ -178,24 +183,33 @@ function Home() {
               rating={game.rating}
               platform={game.platforms?.[0]?.platform.name || "N/A"}
             />
-        ))}
+          ))}
 
-        {/* If search is done and literally nothing was found */}
-        {!isloading && games.length === 0 && (
-           <p className="no-results">Oops! No games found for "{searchTerm}" 🎮</p>
-        )}
+          {!isloading && games.length === 0 && (
+            <p className="no-results">Oops! No games found for "{searchTerm}" 🎮</p>
+          )}
+        </div>
+
+        {/* The observer stays inside the games section */}
+        <div ref={observerTarget} style={{ height: '100px', margin: '20px 0', textAlign: 'center' }}>
+          {isloading && page > 1 && <div className="loader">Loading more games...</div>}
+          {!hasMore && games.length > 0 && <p className="no-results">You've reached the end! 🚀</p>}
+        </div>
       </div>
+
+      {/* RIGHT COLUMN: The Activity Feed */}
+      <aside className="sidebar-section">
+        <ActivityFeed />
+      </aside>
+
+    </div> 
+    {/* NEW WRAPPER END */}
+
       <button
         className={`scroll-btn ${!showButton ? 'hidden' : ''}`}
         onClick={scrollToTop}>
           ↑
       </button>
-      {/* The invisible box that triggers the next fetch */}
-      <div ref={observerTarget} style={{ height: '100px', margin: '20px 0', textAlign: 'center' }}>
-        {/* Show a different loader for the "More" items */}
-        {isloading && page > 1 && <div className="loader">Loading more games...</div>}
-        {!hasMore && games.length > 0 && <p className="no-results">You've reached the end of the galaxy! 🚀</p>}
-      </div>
     </>
   );
 }

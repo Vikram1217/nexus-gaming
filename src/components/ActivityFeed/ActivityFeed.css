@@ -1,0 +1,72 @@
+.activity-feed {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  text-align: left;
+  /* Keep the sidebar from becoming too long */
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.activity-feed h4 {
+  margin-top: 0;
+  color: #00ffcc;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.feed-item {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #222;
+}
+
+.feed-item p {
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+  color: #eee;
+  font-size: 0.9rem;
+}
+
+/* THE NEW STYLE */
+.feed-comment {
+  font-style: italic;
+  color: #888;          /* Faded grey to distinguish from user/game names */
+  font-size: 0.85rem;   /* Slightly smaller */
+  background: #121212;  /* Darker background to make it look like a quote */
+  padding: 8px;
+  border-radius: 4px;
+  margin: 5px 0;
+  border-left: 2px solid #444;
+}
+
+.feed-user {
+  font-weight: bold;
+  color: #fff;
+}
+
+.feed-game-link {
+  color: #00ffcc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.feed-game-link:hover {
+  text-decoration: underline;
+}
+
+.feed-stars {
+  font-size: 0.75rem;
+  margin-top: 5px;
+}
+
+/* Custom scrollbar for the sidebar */
+.activity-feed::-webkit-scrollbar {
+  width: 5px;
+}
+.activity-feed::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}

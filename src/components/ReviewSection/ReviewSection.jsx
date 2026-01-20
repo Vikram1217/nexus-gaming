@@ -5,13 +5,12 @@ import { db } from '../../firebase/config';
 import { doc, setDoc, serverTimestamp, query, where, orderBy, onSnapshot, collection, deleteDoc } from 'firebase/firestore';
 import './ReviewSection.css';
 
-export const ReviewSection = ({gameId}) => {
+export const ReviewSection = ({gameId, gameName}) => {
   
   const [reviewText, setReviewText] = useState('');
   const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState([]); // Array to hold all the reviews from users for this gameId
   const {user} = useAuth();
-
 
   const averageScore = useMemo(() => {
       if(reviews.length === 0) return 0;
@@ -28,6 +27,7 @@ export const ReviewSection = ({gameId}) => {
     const reviewObj = {
         gameId: gameId,
         userId: user.uid,
+        gameTitle: gameName,
         userName: user.email.split('@')[0],
         rating: rating,
         comment: reviewText,

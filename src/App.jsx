@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import NavBar from './components/NavBar/NavBar';
+import { Landing } from './pages/Landing/Landing';
 import { Auth } from './pages/Auth/Auth';
 import Wishlist from './pages/Wishlist/Wishlist';
 import GameDetails from './pages/GameDetails/GameDetails';
@@ -14,8 +15,9 @@ function App() {
       <NavBar />
       
       <Routes>
-        {/* When the URL is "/", show the Home component */}
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
+
+        <Route path="/browse" element={<Home />} />
         
         <Route path="/login" element={<Auth />} />
         

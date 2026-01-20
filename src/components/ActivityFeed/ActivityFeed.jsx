@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { db } from '../../firebase/config'
 import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
-//import './ActivityFeed.css';
+import './ActivityFeed.css';
 
 export const ActivityFeed = () => {
   const [activities, setActivities] = useState([]);

@@ -14,7 +14,7 @@ function Navbar() {
         <NavLink to="/">Nexus <span>Gaming</span></NavLink>
       </div>
       <ul className="nav-links">
-        <li><NavLink to="/">Browse</NavLink></li>
+        <li><NavLink to="/browse">Browse</NavLink></li>
         
         {/* Check if we are still waiting for Firebase */}
         {loading ? (

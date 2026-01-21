@@ -18,11 +18,11 @@ export const Auth = () => {
       if(isLogin){
         await signInWithEmailAndPassword(auth, email, password)
         console.log('Signed in with email/password')
-        nav('/')
+        nav('/browse')
       }else{
         await createUserWithEmailAndPassword(auth, email, password);
         console.log('created account with email/password')
-        nav('/')
+        nav('/browse')
       }
     }catch(err){
       setError(err.message)

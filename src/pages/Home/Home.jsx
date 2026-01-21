@@ -47,6 +47,7 @@ function Home() {
   const sortedGames = useMemo(() => {
     // If games hasn't loaded yet, return an empty array to prevent crashes
     if (!games) return [];
+
     console.log('Sorting games...')
     const sortedGames = [...games].sort((a,b) => {
       if(sortOrder === 'rating') return b.rating - a.rating;

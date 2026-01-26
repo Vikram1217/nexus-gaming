@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { db } from '../../firebase/config';
 import { doc, setDoc, serverTimestamp, query, where, orderBy, onSnapshot, collection, deleteDoc } from 'firebase/firestore';
 import toast from 'react-hot-toast';
+import Modal from '../Modal/Modal';
 import './ReviewSection.css';
 
 export const ReviewSection = ({gameId, gameName}) => {
@@ -12,6 +13,9 @@ export const ReviewSection = ({gameId, gameName}) => {
   const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState([]); // Array to hold all the reviews from users for this gameId
   const {user} = useAuth();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedReview, setSelectedReview] = useState(null);
 
   const averageScore = useMemo(() => {
       if(reviews.length === 0) return 0;
@@ -75,18 +79,21 @@ export const ReviewSection = ({gameId, gameName}) => {
 
   },[gameId])
 
-  const handleDelete = async(reviewId) => {
-    
-    if(window.confirm('Are you sure you want to delete this review?'))
-    {
-      try{
-        const deleteRef = doc(db, 'reviews', reviewId);
-        await deleteDoc(deleteRef);
-      } catch(err){
-        console.log("Error deleteing reivew: ", err)
-      }      
-    } 
+  const handleDeleteClick = (rev) => {
+    setSelectedReview(rev);
+    setIsModalOpen(true);
+  };
+
+const handleConfirmDelete = async () => {
+  if (!selectedReview) return;
+  
+  try {
+    await deleteDoc(doc(db, 'reviews', selectedReview.id));
+    toast.success("Review deleted!");
+  } catch (err) {
+    toast.error("Error deleting review.", err);
   }
+};
   
   return (
     <div className='review-section'>
@@ -141,7 +148,7 @@ export const ReviewSection = ({gameId, gameName}) => {
               
               {/* Only show delete button if the logged-in user wrote the review */}
               {user && user.uid === rev.userId && (
-                <button onClick={() => handleDelete(rev.id)} className="delete-review-btn">
+                <button onClick={() => handleDeleteClick(rev)} className="delete-review-btn">
                   Delete
                 </button>
               )}
@@ -149,6 +156,13 @@ export const ReviewSection = ({gameId, gameName}) => {
           ))
         )}
       </div>
+      <Modal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={handleConfirmDelete}
+        title="Delete Review?"
+        message={`Are you sure you want to permanently delete your review for ${selectedReview?.gameTitle}?`}
+      />
     </div>
   );
 }

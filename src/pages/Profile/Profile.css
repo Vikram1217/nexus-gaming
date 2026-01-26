@@ -1,0 +1,168 @@
+.profile-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.profile-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 40px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.profile-avatar-large {
+  width: 100px;
+  height: 100px;
+  background-color: #00ffcc;
+  color: #121212;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.profile-id h2 {
+  margin: 0 0 5px 0;
+  font-size: 2rem;
+}
+
+.member-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.profile-stats-row {
+  display: flex;
+  gap: 40px;
+  border-top: 1px solid #333;
+  padding-top: 30px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.stat-item strong {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.stat-item span {
+  color: #888;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+.history-card {
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border-left: 4px solid #00ffcc;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.history-card p {
+  color: #ccc;
+  font-style: italic;
+  margin: 0;
+}
+
+.history-card small {
+  display: block;
+  margin-top: 10px;
+  color: #555;
+}
+
+/* 1. The Container for the Avatar and Edit Button */
+.profile-avatar-container {
+  position: relative; /* So we can pin the camera button to it */
+  width: 100px;
+  height: 100px;
+}
+
+/* 2. Style the actual Uploaded Image */
+.profile-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover; /* Ensures the photo doesn't look stretched */
+  border: 3px solid #00ffcc; /* Add a teal ring */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* 3. The Camera Edit Button */
+.edit-avatar-btn {
+  position: absolute;
+  bottom: 0;
+  right: -5px; /* Puts it slightly off the edge */
+  background-color: #00ffcc;
+  color: #121212;
+  border: 2px solid #1a1a1a; /* Makes it "pop" off the dark background */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.edit-avatar-btn:hover {
+  transform: scale(1.1);
+  background-color: white;
+}
+
+/* 4. State when it's currently uploading */
+.edit-avatar-btn:disabled {
+  background-color: #444;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.profile-review-item {
+  position: relative; /* Add this so we can position the button */
+}
+
+.delete-review-btn {
+  background: none;
+  border: 1px solid #444;
+  color: #888;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 15px;
+}
+
+.delete-review-btn:hover {
+  background-color: rgba(255, 74, 74, 0.1);
+  color: #ff4a4a;
+  border-color: #ff4a4a;
+}

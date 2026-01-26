@@ -16,6 +16,16 @@ export const AuthProvider = ({children}) => {
     return () => unsubscribe();
   }, []);
 
+  // NEW: Function to force a state update when profile changes
+  const refreshUser = async () => {
+    // 1. Tell Firebase to refresh the user tokens/metadata from the server
+    await auth.currentUser.reload();
+    // 2. Grab that refreshed user and update our state
+    // We spread it {...auth.currentUser} to ensure React sees it as a NEW object 
+    // and triggers a re-render across the whole app.
+    setUser({ ...auth.currentUser });
+  };
+
   const logOut = () => {
     return signOut(auth)
   }
@@ -23,7 +33,8 @@ export const AuthProvider = ({children}) => {
   const value = {
     user,
     logOut,
-    loading
+    loading,
+    refreshUser
   }
   
   return (

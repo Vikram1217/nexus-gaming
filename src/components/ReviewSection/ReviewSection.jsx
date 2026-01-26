@@ -3,6 +3,7 @@ import { useAuth } from '../../context/AuthContext'
 import { useState, useEffect, useMemo } from 'react'
 import { db } from '../../firebase/config';
 import { doc, setDoc, serverTimestamp, query, where, orderBy, onSnapshot, collection, deleteDoc } from 'firebase/firestore';
+import toast from 'react-hot-toast';
 import './ReviewSection.css';
 
 export const ReviewSection = ({gameId, gameName}) => {
@@ -45,10 +46,10 @@ export const ReviewSection = ({gameId, gameName}) => {
       // Clear the form after submission
       setReviewText('');
       setRating(5);
-      alert("Review posted!");
+      toast.success("Review posted!");
     }catch(err){
       console.error("Error adding review:", err);
-      alert("Failed to post review. Try again.");
+      toast.error("Failed to post review. Try again.");
     }
   }
 

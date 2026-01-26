@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react'; // 1. Import hook
+import { Gamepad2 } from 'lucide-react';
 import { AuthContext } from '../../context/AuthContext'; // 2. Import context
 
 import './NavBar.css';
@@ -11,7 +12,10 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-logo">
-        <NavLink to="/">Nexus <span>Gaming</span></NavLink>
+        <NavLink to="/">
+          <Gamepad2 size={24} color="#00ffcc" style={{marginRight: '10px'}} />
+          Nexus <span>Gaming</span>
+        </NavLink>
       </div>
       <ul className="nav-links">
         <li><NavLink to="/browse">Browse</NavLink></li>
@@ -25,7 +29,17 @@ function Navbar() {
               {user ? (
               <>
                 <li><NavLink to="/wishlist">Wishlist</NavLink></li>
-                <li className="user-email"><div className='email-circle'>{user.email.charAt(0).toUpperCase()}</div></li>
+                <li className="user-email">
+                  <NavLink to="/profile" className="profile-nav-link">
+                    {user?.photoURL ? (
+                      <div className='nav-profile-avatar-container'>
+                        <img src={user.photoURL} alt="Avatar" className="nav-profile-avatar-img" />
+                      </div>                      
+                    ) : (
+                      <div className="email-circle">{user.email.charAt(0).toUpperCase()}</div>
+                    )}
+                  </NavLink>
+                </li>
                 <li><button onClick={logOut} className="logout-btn">Logout</button></li>
               </>
               ) : (

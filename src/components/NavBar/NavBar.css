@@ -71,6 +71,7 @@
 
 .email-circle:hover {
   transform: scale(1.1); /* Subtle "pop" when hovering */
+  cursor: pointer;
 }
 
 .logout-btn {
@@ -89,4 +90,19 @@
   background-color: #ff4a4a;
   color: white;
   box-shadow: 0 0 10px rgba(255, 74, 74, 0.3);
+}
+
+.nav-profile-avatar-container {
+  position: relative; /* So we can pin the camera button to it */
+  width: 35px;
+  height: 35px;
+}
+
+.nav-profile-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover; /* Ensures the photo doesn't look stretched */
+  border: 3px solid #00ffcc; /* Add a teal ring */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }

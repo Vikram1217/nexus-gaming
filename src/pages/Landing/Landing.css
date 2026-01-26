@@ -74,3 +74,46 @@
   .hero-title { font-size: 2.5rem; }
   .hero-btns { flex-direction: column; }
 }
+
+.features {
+  padding: 100px 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #333;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  border-color: #00ffcc;
+  background: rgba(0, 255, 204, 0.05);
+  transform: translateY(-10px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.feature-card p {
+  color: #888;
+  line-height: 1.6;
+}
